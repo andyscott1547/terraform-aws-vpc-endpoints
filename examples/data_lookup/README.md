@@ -26,22 +26,32 @@ module "vpc_endpoints" {
 
 #### Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| aws | ~> 4.0 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| tf_state | andyscott1547/remote-state/aws | 1.1.0 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 0.1.0 |
 
 #### Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+| [aws_route_tables.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route_tables) | data source |
+| [aws_subnets.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnets) | data source |
+| [aws_vpc.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| gateway_endpoints | List of gateway endpoints to create | `list(string)` | n/a | yes |
+| interface_endpoints | List of interface endpoints to create | `list(string)` | n/a | yes |
 | region | value for the region | `string` | `"eu-west-1"` | no |
 | tags | value for the tags | `map(string)` | `{}` | no |
 

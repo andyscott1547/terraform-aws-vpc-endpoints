@@ -56,7 +56,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| tf_state | andyscott1547/remote-state/aws | 1.1.0 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 0.1.0 |
 
 #### Resources
 
