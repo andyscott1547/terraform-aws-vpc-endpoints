@@ -1,6 +1,6 @@
 # AWS Terraform VPC Endpoints
 
-Basic module to create remote state in AWS using S3 and DynamoDB.
+Terraform module to create VPC endpoints.
 
 - [Overview](#overview)
 - [Terraform Docs](#terraform-docs)
