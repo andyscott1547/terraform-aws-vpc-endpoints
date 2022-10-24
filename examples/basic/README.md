@@ -3,7 +3,7 @@
 ## Usage 
 
 ```terraform
-module "tf_state" {
+module "vpc_endpoints" {
   source  = "andyscott1547/vpc-endpoints/aws"
   version = "0.1.0"
   vpc_id  = "vpc-1234567890"
