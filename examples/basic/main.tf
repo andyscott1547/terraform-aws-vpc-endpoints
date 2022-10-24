@@ -19,7 +19,7 @@ module "tf_state" {
   ]
   gateway_endpoints = [
     "s3",
-    "dynamodb",
+    "dynamodb"
   ]
   subnet_ids = [
     "subnet-1234567890",
