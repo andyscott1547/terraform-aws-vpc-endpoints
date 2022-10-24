@@ -23,5 +23,5 @@ data "aws_subnets" "current" {
 }
 
 data "aws_route_tables" "current" {
-  vpc_id = var.vpc_id
+  vpc_id = data.aws_vpc.current.id
 }
