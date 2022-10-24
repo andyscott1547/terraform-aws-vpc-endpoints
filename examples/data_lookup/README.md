@@ -1,40 +1,12 @@
-# Basic Example
+# Data-Lookup Example
 
 ## Usage 
 
 ```terraform
 module "tf_state" {
-  source  = "andyscott1547/vpc-endpoints/aws"
-  version = "0.1.0"
-  vpc_id  = "vpc-1234567890"
-  interface_endpoints = [
-    "ec2",
-    "rds",
-    "sqs",
-    "sns",
-    "ssm",
-    "logs",
-    "ssmmessages",
-    "ec2messages",
-    "autoscaling",
-    "ecs",
-    "athena"
-  ]
-  gateway_endpoints = [
-    "s3",
-    "dynamodb"
-  ]
-  subnet_ids = [
-    "subnet-1234567890",
-    "subnet-0987654321",
-    "subnet-1234567890"
-  ]
-  route_table_ids = [
-    "rtb-1234567890",
-    "rtb-0987654321",
-    "rtb-1234567890"
-  ]
-}
+  source  = "andyscott1547/remote-state/aws"
+  version = "1.2.4"
+  name    = "tf-state-bucket"
 }
 ```
 
