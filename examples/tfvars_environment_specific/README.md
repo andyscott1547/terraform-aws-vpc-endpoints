@@ -1,17 +1,16 @@
-# Workspace Specific Example
+# TFVARS Environment Specific Example
 
 ## Usage 
 
 ```terraform
 module "vpc_endpoints" {
-  source                      = "andyscott1547/vpc-endpoints/aws"
-  version                     = "0.1.6"
-  managed_private_dns_enabled = var.managed_private_dns_enabled
-  vpc_id                      = local.environment.vpc_id
-  interface_endpoints         = local.environment.interface_endpoints
-  gateway_endpoints           = local.environment.gateway_endpoints
-  subnet_ids                  = local.environment.subnet_ids
-  route_table_ids             = local.environment.route_table_ids
+  source              = "andyscott1547/vpc-endpoints/aws"
+  version             = "0.1.6"
+  vpc_id              = data.aws_vpc.current.id
+  interface_endpoints = var.interface_endpoints
+  gateway_endpoints   = var.gateway_endpoints
+  subnet_ids          = data.aws_subnets.current.ids
+  route_table_ids     = data.aws_route_tables.current.ids
 }
 ```
 

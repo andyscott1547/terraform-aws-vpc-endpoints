@@ -1,13 +1,13 @@
-# examples/data_lookup/main.tf
+# examples/tfvars_environment_specific/main.tf
 
 module "vpc_endpoints" {
   source                      = "andyscott1547/vpc-endpoints/aws"
   version                     = "0.1.6"
   managed_private_dns_enabled = var.managed_private_dns_enabled
-  vpc_id                      = data.aws_vpc.current.id
+  vpc_id                      = var.vpc_id
   interface_endpoints         = var.interface_endpoints
   gateway_endpoints           = var.gateway_endpoints
-  subnet_ids                  = data.aws_subnets.current.ids
-  route_table_ids             = data.aws_route_tables.current.ids
+  subnet_ids                  = var.subnet_ids
+  route_table_ids             = var.route_table_ids
 }
 
