@@ -2,7 +2,7 @@
 
 module "vpc_endpoints" {
   source              = "andyscott1547/vpc-endpoints/aws"
-  version             = "0.1.2"
+  version             = "0.1.3"
   vpc_id              = data.aws_vpc.current.id
   interface_endpoints = var.interface_endpoints
   gateway_endpoints   = var.gateway_endpoints

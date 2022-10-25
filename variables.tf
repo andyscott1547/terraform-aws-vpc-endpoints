@@ -29,9 +29,9 @@ variable "gateway_endpoints" {
   default     = []
 }
 
-variable "private_dns_enabled" {
+variable "managed_private_dns_enabled" {
   type        = bool
-  description = "Enable private DNS for VPC endpoints"
+  description = "Enable AWS managed private DNS for VPC endpoints, if set to fasle private DNS zones and records will be created for use in a centralized solution"
   default     = true
 }
 

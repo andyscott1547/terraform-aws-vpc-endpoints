@@ -23,7 +23,7 @@ resource "aws_vpc_endpoint" "interface" {
   for_each            = local.interface_endpoints
   service_name        = each.key
   vpc_id              = var.vpc_id
-  private_dns_enabled = var.private_dns_enabled
+  private_dns_enabled = var.managed_private_dns_enabled
   subnet_ids          = var.subnet_ids
   security_group_ids  = [aws_security_group.allow_vpc_endpoint.id]
   tags = {
@@ -34,7 +34,7 @@ resource "aws_vpc_endpoint" "interface" {
 }
 
 resource "aws_route53_zone" "interface_phz" {
-  for_each = var.private_dns_enabled ? {} : local.interface_endpoints
+  for_each = var.managed_private_dns_enabled ? {} : local.interface_endpoints
   name     = each.value
   vpc {
     vpc_id = var.vpc_id
@@ -49,10 +49,22 @@ resource "aws_route53_zone" "interface_phz" {
   }
 }
 
-resource "aws_route53_record" "dev_ns" {
-  for_each = var.private_dns_enabled ? {} : local.interface_endpoints
+resource "aws_route53_record" "interface" {
+  for_each = var.managed_private_dns_enabled ? {} : local.interface_endpoints
   zone_id  = aws_route53_zone.interface_phz[each.key].zone_id
   name     = each.value
+  type     = "A"
+  alias {
+    name                   = aws_vpc_endpoint.interface[each.key].dns_entry[0].dns_name
+    zone_id                = aws_vpc_endpoint.interface[each.key].dns_entry[0].hosted_zone_id
+    evaluate_target_health = true
+  }
+}
+
+resource "aws_route53_record" "interface" {
+  for_each = var.managed_private_dns_enabled ? {} : local.interface_endpoints
+  zone_id  = aws_route53_zone.interface_phz[each.key].zone_id
+  name     = "*.${each.value}"
   type     = "A"
   alias {
     name                   = aws_vpc_endpoint.interface[each.key].dns_entry[0].dns_name
