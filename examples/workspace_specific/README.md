@@ -5,7 +5,7 @@
 ```terraform
 module "vpc_endpoints" {
   source                      = "andyscott1547/vpc-endpoints/aws"
-  version                     = "0.1.6"
+  version                     = "1.0.0"
   managed_private_dns_enabled = var.managed_private_dns_enabled
   vpc_id                      = local.environment.vpc_id
   interface_endpoints         = local.environment.interface_endpoints
@@ -35,7 +35,7 @@ module "vpc_endpoints" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 0.1.0 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.0 |
 
 #### Resources
 
@@ -43,16 +43,13 @@ module "vpc_endpoints" {
 |------|------|
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
-| [aws_route_tables.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route_tables) | data source |
-| [aws_subnets.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnets) | data source |
-| [aws_vpc.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| gateway_endpoints | List of gateway endpoints to create | `list(string)` | n/a | yes |
-| interface_endpoints | List of interface endpoints to create | `list(string)` | n/a | yes |
+| env_config | Environment specific values indexed by environment name | `map(any)` | n/a | yes |
+| managed_private_dns_enabled | Enable AWS managed private DNS for VPC endpoints, if set to fasle private DNS zones and records will be created for use in a centralized solution | `bool` | `true` | no |
 | region | value for the region | `string` | `"eu-west-1"` | no |
 | tags | value for the tags | `map(string)` | `{}` | no |
 

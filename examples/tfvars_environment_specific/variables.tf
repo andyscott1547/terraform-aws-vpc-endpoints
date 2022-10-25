@@ -37,7 +37,7 @@ variable "subnet_ids" {
   type        = list(string)
   description = "List of subnet IDs to associate with the endpoints"
 }
-  
+
 variable "route_table_ids" {
   type        = list(string)
   description = "List of route table IDs to associate with the endpoints"

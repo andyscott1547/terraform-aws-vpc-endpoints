@@ -5,7 +5,7 @@
 ```terraform
 module "vpc_endpoints" {
   source                      = "andyscott1547/vpc-endpoints/aws"
-  version                     = "0.1.6"
+  version                     = "1.0.0"
   managed_private_dns_enabled = var.managed_private_dns_enabled
   vpc_id                      = data.aws_vpc.current.id
   interface_endpoints         = local.environment.interface_endpoints
@@ -29,13 +29,13 @@ module "vpc_endpoints" {
 
 | Name | Version |
 |------|---------|
-| aws | ~> 4.0 |
+| aws | 4.36.1 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 0.1.0 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.0 |
 
 #### Resources
 
@@ -51,8 +51,9 @@ module "vpc_endpoints" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| gateway_endpoints | List of gateway endpoints to create | `list(string)` | n/a | yes |
-| interface_endpoints | List of interface endpoints to create | `list(string)` | n/a | yes |
+| env_config | Environment specific values indexed by environment name | `map(any)` | n/a | yes |
+| environment | Environment name | `string` | n/a | yes |
+| managed_private_dns_enabled | Enable AWS managed private DNS for VPC endpoints, if set to fasle private DNS zones and records will be created for use in a centralized solution | `bool` | `true` | no |
 | region | value for the region | `string` | `"eu-west-1"` | no |
 | tags | value for the tags | `map(string)` | `{}` | no |
 
