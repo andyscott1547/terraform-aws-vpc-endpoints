@@ -2,7 +2,7 @@
 
 # Global Variables
 
-region = "eu-west-1"
+region                      = "eu-west-1"
 managed_private_dns_enabled = false
 tags = {
   "Project"    = "terraform"

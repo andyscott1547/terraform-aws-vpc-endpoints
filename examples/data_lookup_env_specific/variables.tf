@@ -19,11 +19,11 @@ variable "managed_private_dns_enabled" {
 }
 
 variable "env_config" {
-  type = map(any)
+  type        = map(any)
   description = "Environment specific values indexed by environment name"
 }
 
 variable "environment" {
-  type = string
+  type        = string
   description = "Environment name"
 }

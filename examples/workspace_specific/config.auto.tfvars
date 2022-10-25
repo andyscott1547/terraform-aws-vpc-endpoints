@@ -2,7 +2,7 @@
 
 # Global Variables
 
-region = "eu-west-1"
+region                      = "eu-west-1"
 managed_private_dns_enabled = false
 tags = {
   "Project"    = "terraform"
@@ -15,7 +15,7 @@ tags = {
 
 env_config = {
   develop = {
-    vpc_id  = "vpc-1234567890"
+    vpc_id = "vpc-1234567890"
     subnet_ids = [
       "subnet-1234567890",
       "subnet-0987654321",
@@ -43,7 +43,7 @@ env_config = {
   }
 
   staging = {
-    vpc_id  = "vpc-1234567890"
+    vpc_id = "vpc-1234567890"
     subnet_ids = [
       "subnet-1234567890",
       "subnet-0987654321",
@@ -71,7 +71,7 @@ env_config = {
   }
 
   preprod = {
-    vpc_id  = "vpc-1234567890"
+    vpc_id = "vpc-1234567890"
     subnet_ids = [
       "subnet-1234567890",
       "subnet-0987654321",
@@ -101,7 +101,7 @@ env_config = {
   }
 
   prod = {
-    vpc_id  = "vpc-1234567890"
+    vpc_id = "vpc-1234567890"
     subnet_ids = [
       "subnet-1234567890",
       "subnet-0987654321",
