@@ -61,7 +61,7 @@ resource "aws_route53_record" "interface" {
   }
 }
 
-resource "aws_route53_record" "interface" {
+resource "aws_route53_record" "interface_wildcard" {
   for_each = var.managed_private_dns_enabled ? {} : local.interface_endpoints
   zone_id  = aws_route53_zone.interface_phz[each.key].zone_id
   name     = "*.${each.value}"
