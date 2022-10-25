@@ -2,6 +2,8 @@
 
 region = "eu-west-1"
 
+managed_private_dns_enabled = false
+
 tags = {
   "Project"    = "terraform"
   "Owner"      = "terraform"

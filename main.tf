@@ -47,6 +47,9 @@ resource "aws_route53_zone" "interface_phz" {
       vpc,
     ]
   }
+  depends_on = [
+    aws_vpc_endpoint.interface
+  ]
 }
 
 resource "aws_route53_record" "interface" {

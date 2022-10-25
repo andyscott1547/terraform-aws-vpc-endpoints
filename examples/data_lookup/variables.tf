@@ -21,3 +21,9 @@ variable "gateway_endpoints" {
   type        = list(string)
   description = "List of gateway endpoints to create"
 }
+
+variable "managed_private_dns_enabled" {
+  type        = bool
+  description = "Enable AWS managed private DNS for VPC endpoints, if set to fasle private DNS zones and records will be created for use in a centralized solution"
+  default     = true
+}
