@@ -5,7 +5,7 @@
 ```terraform
 module "vpc_endpoints" {
   source  = "andyscott1547/vpc-endpoints/aws"
-  version = "1.0.1"
+  version = "1.0.2"
   vpc_id  = "vpc-1234567890"
   interface_endpoints = [
     "ec2",
@@ -56,7 +56,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.1 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.2 |
 
 #### Resources
 

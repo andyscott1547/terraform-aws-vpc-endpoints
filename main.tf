@@ -27,7 +27,7 @@ resource "aws_vpc_endpoint" "interface" {
   vpc_id              = var.vpc_id
   private_dns_enabled = var.managed_private_dns_enabled
   subnet_ids          = var.subnet_ids
-  security_group_ids  = [aws_security_group.allow_vpc_endpoint.id]
+  security_group_ids  = [aws_security_group.allow_vpc_endpoint[interface_endpoint_sg].id]
   tags = {
     Name = each.key
     PHZ  = each.value

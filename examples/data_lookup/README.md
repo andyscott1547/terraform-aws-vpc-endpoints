@@ -5,7 +5,7 @@
 ```terraform
 module "vpc_endpoints" {
   source              = "andyscott1547/vpc-endpoints/aws"
-  version             = "1.0.1"
+  version             = "1.0.2"
   vpc_id              = data.aws_vpc.current.id
   interface_endpoints = var.interface_endpoints
   gateway_endpoints   = var.gateway_endpoints
@@ -34,7 +34,7 @@ module "vpc_endpoints" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.1 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.2 |
 
 #### Resources
 
