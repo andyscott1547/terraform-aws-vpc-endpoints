@@ -20,13 +20,13 @@ variable "allowed_cidr_blocks" {
 variable "interface_endpoints" {
   type        = list(string)
   description = "List of interface endpoints to create"
-  default     = []
+  default     = ["ec2", "ssm", "logs", "ssmmessages", "ec2messages"]
 }
 
 variable "gateway_endpoints" {
   type        = list(string)
   description = "List of gateway endpoints to create"
-  default     = []
+  default     = ["s3", "dynamodb"]
 }
 
 variable "managed_private_dns_enabled" {
