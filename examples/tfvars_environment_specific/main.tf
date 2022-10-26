@@ -2,7 +2,7 @@
 
 module "vpc_endpoints" {
   source                      = "andyscott1547/vpc-endpoints/aws"
-  version                     = "1.0.2"
+  version                     = "1.0.3"
   managed_private_dns_enabled = var.managed_private_dns_enabled
   vpc_id                      = var.vpc_id
   interface_endpoints         = var.interface_endpoints

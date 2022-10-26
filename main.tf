@@ -1,7 +1,7 @@
 # main.tf
 
 resource "aws_security_group" "allow_vpc_endpoint" {
-  for_each = local.interface_endpoints != {} ? { interface_endpoint_sg = true } : {}
+  for_each    = local.interface_endpoints != {} ? { interface_endpoint_sg = true } : {}
   name        = var.sg_name
   description = "Allow traffic to vpc endpoints"
   vpc_id      = var.vpc_id
@@ -11,7 +11,7 @@ resource "aws_security_group" "allow_vpc_endpoint" {
 }
 
 resource "aws_security_group_rule" "allow_vpc_endpoint" {
-  for_each = aws_security_group.allow_vpc_endpoint
+  for_each          = aws_security_group.allow_vpc_endpoint
   type              = "ingress"
   from_port         = 443
   to_port           = 443
@@ -27,7 +27,7 @@ resource "aws_vpc_endpoint" "interface" {
   vpc_id              = var.vpc_id
   private_dns_enabled = var.managed_private_dns_enabled
   subnet_ids          = var.subnet_ids
-  security_group_ids  = [aws_security_group.allow_vpc_endpoint[interface_endpoint_sg].id]
+  security_group_ids  = [aws_security_group.allow_vpc_endpoint["interface_endpoint_sg"].id]
   tags = {
     Name = each.key
     PHZ  = each.value
