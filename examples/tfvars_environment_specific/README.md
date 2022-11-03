@@ -5,7 +5,7 @@
 ```terraform
 module "vpc_endpoints" {
   source                      = "andyscott1547/vpc-endpoints/aws"
-  version                     = "1.0.3"
+  version                     = "1.0.4"
   managed_private_dns_enabled = var.managed_private_dns_enabled
   vpc_id                      = var.vpc_id
   interface_endpoints         = var.interface_endpoints
@@ -35,7 +35,7 @@ module "vpc_endpoints" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.3 |
+| vpc_endpoints | andyscott1547/vpc-endpoints/aws | 1.0.4 |
 
 #### Resources
 

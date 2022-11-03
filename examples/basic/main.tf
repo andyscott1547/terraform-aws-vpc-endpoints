@@ -2,7 +2,7 @@
 
 module "vpc_endpoints" {
   source  = "andyscott1547/vpc-endpoints/aws"
-  version = "1.0.3"
+  version = "1.0.4"
   vpc_id  = "vpc-1234567890"
   interface_endpoints = [
     "ec2",

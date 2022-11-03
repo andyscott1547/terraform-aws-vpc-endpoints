@@ -51,7 +51,7 @@ No modules.
 | gateway_endpoints | List of gateway endpoints to create | `list(string)` | `[]` | no |
 | interface_endpoints | List of interface endpoints to create | `list(string)` | `[]` | no |
 | managed_private_dns_enabled | Enable AWS managed private DNS for VPC endpoints, if set to fasle private DNS zones and records will be created for use in a centralized solution | `bool` | `true` | no |
-| route_table_ids | List of route table IDs to use for VPC endpoints | `list(string)` | n/a | yes |
+| route_table_ids | List of route table IDs to use for VPC gateway endpoints | `list(string)` | `null` | no |
 | sg_name | Name of the security group usewd for VPC endpoint access | `string` | `"VPC-Endpoint-SG"` | no |
 | subnet_ids | List of subnet IDs to use for VPC endpoints | `list(string)` | n/a | yes |
 | vpc_id | The VPC ID | `string` | n/a | yes |
